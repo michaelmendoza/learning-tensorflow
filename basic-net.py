@@ -4,16 +4,19 @@ Basic Code for a single layer neural network
 '''
 
 import tensorflow as tf
+import matplotlib.pyplot as plt
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Import Dataset
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 # Training Parameters
-learning_rate = 0.5
+learning_rate = 0.1
 num_steps = 5000
-batch_size = 100
-display_step = 100
+batch_size = 128
+display_step = 10
 
 # Network Parameters
 NUM_INPUTS = 784
@@ -42,10 +45,27 @@ sess = tf.Session()
 sess.run(init)
 
 # Train network
-for i in range(1000):
-    batch_xs, batch_ys = mnist.train.next_batch(100)
+_step = []
+_acc = []
+for step in range(num_steps):
+    batch_xs, batch_ys = mnist.train.next_batch(batch_size)
     sess.run( train_step, feed_dict={x: batch_xs, y_: batch_ys} )
-    
-    if(i % display_step == 0)
+
+    if(step % display_step == 0):
       acc = sess.run(accuracy, feed_dict={x: mnist.test.images, y_:mnist.test.labels})
-    	print("Step: " + step + " Test Accuracy: " + acc); 
+      _step.append(step)
+      _acc.append(acc)
+      print("Step: " + str(step) + " Test Accuracy: " + str(acc)) 
+
+# Plot Accuracy
+plt.plot(_step, _acc, label="test accuracy")
+plt.xlabel("Steps")
+plt.ylabel("Accuracy")
+plt.title("Accuracy for MINST Classification")
+plt.show()
+
+
+
+
+
+
