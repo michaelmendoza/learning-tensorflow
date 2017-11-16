@@ -35,6 +35,7 @@ Y = tf.placeholder(tf.float32, [None, NUM_OUTPUTS]) # Truth Data - Output
 # Reshape to match picture format [BatchSize, Height x Width x Channel] => [Batch Size, Height, Width, Channel]
 x = tf.reshape(X, shape=[-1, 28, 28, 1])
 
+# Convolutional layers and max pool
 he_init = tf.contrib.layers.variance_scaling_initializer()
 conv1 = tf.layers.conv2d(x,     NUM_C1, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h1')
 conv2 = tf.layers.conv2d(conv1, NUM_C2, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h2')
@@ -44,6 +45,7 @@ pool1 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 s = pool1.get_shape().as_list()
 flatten = tf.reshape(pool1, [-1, s[1]*s[2]*s[3]])
 
+# Fully-connected layers 
 fc1 = tf.layers.dense(flatten, NUM_H1, activation=tf.nn.relu, kernel_initializer=he_init, name='fc1')   # First hidden layer with relu
 fc2 = tf.layers.dense(fc1, NUM_H2, activation=tf.nn.relu, kernel_initializer=he_init, name='fc2') # Second hidden layer with relu
 logits = tf.layers.dense(fc2, NUM_OUTPUTS, name='logits')  # this tf.layers.dense is same as tf.matmul(x, W) + b
