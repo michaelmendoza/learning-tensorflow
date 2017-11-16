@@ -42,8 +42,7 @@ def network():
     pool1 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 
     # Reshape to fit to fully connected layer input
-    s = pool1.get_shape().as_list()
-    flatten = tf.reshape(pool1, [-1, s[1]*s[2]*s[3]])
+    flatten = tf.contrib.layers.flatten(pool1)
 
     # Fully-connected layers 
     fc1 = tf.layers.dense(flatten, NUM_H1, activation=tf.nn.relu, kernel_initializer=he_init, name='fc1')   # First hidden layer with relu
