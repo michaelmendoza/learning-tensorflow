@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a single layer neural network
+Basic Code for a convolutional neural network with 2 conv layers, a max pool layer, and 2 full-connected layers
 '''
 
 import tensorflow as tf

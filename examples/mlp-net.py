@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a single layer neural network
+Basic Code for a multi-layer neural network with two hidden layers
 '''
 
 import tensorflow as tf
