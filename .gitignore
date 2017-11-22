@@ -1,3 +1,4 @@
 
 *.pyc
 MNIST_data/
+cifar-10-batches-py/

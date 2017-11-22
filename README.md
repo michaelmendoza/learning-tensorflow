@@ -1,6 +1,6 @@
 # Learning Tensorflow
 
-This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, multi-layered perception neural network, and convolutional neural networks. Tensorflow implementations function with a variety of data sets.
+This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets.
 
 # Examples
 
