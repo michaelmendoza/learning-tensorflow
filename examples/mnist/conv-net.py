@@ -3,6 +3,10 @@
 Basic Code for a convolutional neural network with 2 conv layers, a max pool layer, and 2 full-connected layers
 '''
 
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import os
@@ -19,7 +23,10 @@ batch_size = 128
 display_step = 100
 
 # Network Parameters
-NUM_INPUTS = 784
+WIDTH = 28
+HEIGHT = 28
+CHANNELS = 1
+NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
 NUM_OUTPUTS = 10
 NUM_C1 = 16 
 NUM_C2 = 16
@@ -33,7 +40,7 @@ Y = tf.placeholder(tf.float32, [None, NUM_OUTPUTS]) # Truth Data - Output
 # Network Architecture
 def network():
     # Reshape to match picture format [BatchSize, Height x Width x Channel] => [Batch Size, Height, Width, Channel]
-    x = tf.reshape(X, shape=[-1, 28, 28, 1])
+    x = tf.reshape(X, shape=[-1, HEIGHT, WIDTH, CHANNELS])
 
     # Convolutional layers and max pool
     he_init = tf.contrib.layers.variance_scaling_initializer()

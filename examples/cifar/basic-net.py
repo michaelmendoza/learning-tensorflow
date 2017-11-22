@@ -3,23 +3,30 @@
 Basic Code for a single layer neural network
 '''
 
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Import Dataset
-from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+from data_loader import DataLoader
+cifar = DataLoader()
 
 # Training Parameters
-learning_rate = 0.1
-num_steps = 5000
+learning_rate = 0.0001
+num_steps = 10000
 batch_size = 128
 display_step = 100
 
 # Network Parameters
-NUM_INPUTS = 784
+_WIDTH = 32
+_HEIGHT = 32
+_CHANNELS = 3 
+NUM_INPUTS = _WIDTH * _HEIGHT * _CHANNELS 
 NUM_OUTPUTS = 10
 
 # Network Varibles and placeholders
@@ -49,11 +56,11 @@ sess.run(init)
 _step = []
 _acc = []
 for step in range(num_steps):
-    batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+    batch_xs, batch_ys = cifar.next_batch(batch_size)
     sess.run( trainer, feed_dict={x: batch_xs, y_: batch_ys} )
 
     if(step % display_step == 0):
-      acc = sess.run(accuracy, feed_dict={x: mnist.test.images, y_:mnist.test.labels})
+      acc = sess.run(accuracy, feed_dict={x: cifar.x_test, y_:cifar.y_test})
 
       _step.append(step)
       _acc.append(acc)
