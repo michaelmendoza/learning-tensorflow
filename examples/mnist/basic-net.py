@@ -69,10 +69,3 @@ plt.xlabel("Steps")
 plt.ylabel("Accuracy")
 plt.title("Accuracy for MINST Classification")
 plt.show()
-
-
-
-
-
-
-
