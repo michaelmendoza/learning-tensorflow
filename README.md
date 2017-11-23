@@ -1,18 +1,19 @@
 # Learning Tensorflow
 
-This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets.
+This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Keras implmentations are also included as a comparison for some cases.
 
 # Examples
 
 ## Neural Networks
-A variety of tensorflow network implementations for MNIST, and CFAR-10 datasets
+A variety of neural network implementations for MNIST, and CFAR-10 datasets
 
 ### MNIST
-- [Basic Neural Network](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/mnist/basic-net.py) - A simple (single layer preception) network for classifying MNIST dataset
-- [Multi-layer Neural Nework](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/mnist/mlp-net.py) - A simple (multi-layer preception) network for classifying MNIST dataset
-- [Convolutional Neural Nework](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/mnist/conv-net.py) - A convolutional network for classifying MNIST dataset 
+- Basic Neural Network - A simple (single layer preception) network for classifying MNIST dataset ([tensorflow](examples/mnist/basic-net.py))
+- Multi-layer Neural Nework - A simple (multi-layer preception) network for classifying MNIST dataset ([tensorflow](examples/mnist/mlp-net.py))
+- Convolutional Neural Nework - A convolutional network for classifying MNIST dataset ([tensorflow](examples/mnist/conv-net.py))
 
 ### CIFAR-10
-- [Basic Neural Network](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/cifar/basic-net.py) - A simple (single layer preception) network for classifying CIFAR-10 dataset
-- [Multi-layer Neural Nework](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/cifar/mlp-net.py) - A simple (multi-layer preception) network for classifying CIFAR-10 dataset
-- [Convolutional Neural Nework](https://github.com/michaelmendoza/learning-tensorflow/blob/master/examples/cifar/conv-net.py) - A convolutional network for classifying CIFAR-10 dataset 
+- Basic Neural Network - A simple (single layer preception) network for classifying CIFAR-10 dataset ([tensorflow](examples/cifar/basic-net.py), [keras](examples/cifar/keras-basic.py))
+- Multi-layer Neural Nework - A simple (multi-layer preception) network for classifying CIFAR-10 dataset ([tensorflow](examples/cifar/mlp-net.py))
+- Convolutional Neural Nework - A convolutional network for classifying CIFAR-10 dataset ([tensorflow](examples/cifar/conv-net.py), [keras](examples/cifar/keras-conv.py))
+- Convolutional Neural Nework - A convolutional network (6-conv, 3 max pool, 2 fully-connected layers) with Dropout for classifying CIFAR-10 dataset ([keras](examples/cifar/keras-nine-layer-conv.py))

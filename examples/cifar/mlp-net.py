@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a multi-layer neural network with two hidden layers
+Tensorflow Code for a multi-layer neural network with two hidden layers
 '''
 
 from __future__ import absolute_import
@@ -23,9 +23,7 @@ batch_size = 128
 display_step = 100
 
 # Network Parameters
-_WIDTH = 32
-_HEIGHT = 32
-_CHANNELS = 3 
+_WIDTH = 32; _HEIGHT = 32; _CHANNELS = 3 
 NUM_INPUTS = _WIDTH * _HEIGHT * _CHANNELS 
 NUM_OUTPUTS = 10
 NUM_H1 = 512

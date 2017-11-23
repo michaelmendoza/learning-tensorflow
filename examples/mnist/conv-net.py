@@ -23,9 +23,7 @@ batch_size = 128
 display_step = 100
 
 # Network Parameters
-WIDTH = 28
-HEIGHT = 28
-CHANNELS = 1
+WIDTH = 28; HEIGHT = 28; CHANNELS = 1
 NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
 NUM_OUTPUTS = 10
 NUM_C1 = 16 

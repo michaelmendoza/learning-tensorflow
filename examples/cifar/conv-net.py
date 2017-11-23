@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a convolutional neural network with 2 conv layers, a max pool layer, and 2 full-connected layers
+Tensorflow Code for a convolutional neural network with 2 conv layers, a max pool layer, and 2 full-connected layers
 '''
 
 from __future__ import absolute_import
@@ -23,9 +23,7 @@ batch_size = 128
 display_step = 100
 
 # Network Parameters
-WIDTH = 32
-HEIGHT = 32
-CHANNELS = 3
+WIDTH = 32; HEIGHT = 32; CHANNELS = 3
 NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
 NUM_OUTPUTS = 10
 NUM_C1 = 32
@@ -93,10 +91,4 @@ plt.xlabel("Steps")
 plt.ylabel("Accuracy")
 plt.title("Accuracy for MINST Classification")
 plt.show()
-
-
-
-
-
-
 

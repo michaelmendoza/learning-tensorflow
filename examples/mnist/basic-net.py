@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a single layer neural network
+Tensorflow Code for a single layer neural network
 '''
 
 from __future__ import absolute_import
