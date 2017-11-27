@@ -17,3 +17,4 @@ A variety of neural network implementations for MNIST, and CFAR-10 datasets
 - Multi-layer Neural Nework ([tensorflow](examples/cifar/mlp-net.py), [keras](examples/cifar/keras-mlp.py)) - A simple (multi-layer preception) network for classifying CIFAR-10 dataset 
 - Convolutional Neural Nework ([tensorflow](examples/cifar/conv-net.py), [keras](examples/cifar/keras-conv.py)) - A convolutional network for classifying CIFAR-10 dataset
 - Convolutional Neural Nework ([keras](examples/cifar/keras-nine-layer-conv.py)) - A convolutional network (6-conv, 3 max pool, 2 fully-connected layers) with Dropout for classifying CIFAR-10 dataset 
+- VGG network ([keras](examples/cifar/keras-vgg.py)) - A very deep convolutional network for large-scale image recongition (https://arxiv.org/pdf/1409.1556v6.pdf)
