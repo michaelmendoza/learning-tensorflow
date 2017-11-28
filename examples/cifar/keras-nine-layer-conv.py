@@ -21,7 +21,7 @@ from data_loader import DataLoader
 cifar = DataLoader()
 
 # Training Parameters
-batch_size = 128
+batch_size = 32
 epochs = 10
 
 # Network Parameters
