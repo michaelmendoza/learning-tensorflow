@@ -57,7 +57,7 @@ def load_data(ratio = 0.8):
 
 	# Process data i.e. whitten input data, and set output data as a one hot vector
 	_x = whiten_data(_x)
-	_y = np.array(map(one_hot_vec, _y))
+	_y = np.array(list(map(one_hot_vec, _y)))
 
 	# Split data into test/training sets
 	index = int(ratio * len(_x)) # Split index
