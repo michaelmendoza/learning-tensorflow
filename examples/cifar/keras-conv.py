@@ -20,7 +20,7 @@ from data_loader import DataLoader
 cifar = DataLoader()
 
 # Training Parameters
-batch_size = 128
+batch_size = 32
 epochs = 10
 
 # Network Parameters
@@ -28,14 +28,13 @@ _WIDTH = 32; _HEIGHT = 32; _CHANNELS = 3
 NUM_INPUTS = _WIDTH * _HEIGHT * _CHANNELS 
 NUM_OUTPUTS = 10
 NUM_C1 = 32
-NUM_C2 = 32
 NUM_H1 = 512
 NUM_H2 = 256
 
 # Network Architecture
 model = Sequential()
 model.add(Conv2D(NUM_C1, (3, 3), padding="same", activation="relu", input_shape=(_WIDTH, _HEIGHT, _CHANNELS)))
-model.add(Conv2D(NUM_C2, (3, 3), padding="same", activation="relu"))
+model.add(Conv2D(NUM_C1, (3, 3), padding="same", activation="relu"))
 model.add(MaxPooling2D(padding="same", strides=(2, 2), pool_size=(2, 2)))
 
 model.add(Flatten())
