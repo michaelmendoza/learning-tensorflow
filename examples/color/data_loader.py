@@ -61,13 +61,11 @@ class DataGenerator:
         self.label = np.concatenate( (self.label, 1 - self.label), axis=3)
 
         # Reshape 
-        self.data = np.reshape(self.data, (self.size, WIDTH * HEIGHT * CHANNELS))
-        self.label = np.reshape(self.label, (self.size, WIDTH * HEIGHT * 2))
-
-        print(self.label.shape)  
+        #self.data = np.reshape(self.data, (self.size, WIDTH * HEIGHT * CHANNELS))
+        #self.label = np.reshape(self.label, (self.size, WIDTH * HEIGHT * 2))
 
         # Setup data
-        self.data = self.whiten_data(self.data)
+        #self.data = self.whiten_data(self.data)
 
         # Split data into test/training sets
         index = int(self.ratio * len(self.data)) # Split index
@@ -78,13 +76,15 @@ class DataGenerator:
 
     def show(self, index):
         ''' Show a data slice at index'''
-        img = np.reshape(self.data[index], (WIDTH, HEIGHT, CHANNELS))
+        #img = np.reshape(self.data[index], (WIDTH, HEIGHT, CHANNELS))
+        img = self.data[index]
         plt.imshow(img)
         plt.show()
 
     def show_label(self, index):
         ''' Show a truth data slice at index'''
-        img = np.reshape(self.label[index], (WIDTH, HEIGHT, 2))
+        #img = np.reshape(self.label[index], (WIDTH, HEIGHT, 2))
+        img = self.label[index]
         plt.imshow(img[:,:,0], cmap='gray')
         plt.show()  
         plt.imshow(img[:,:,1], cmap='gray')
