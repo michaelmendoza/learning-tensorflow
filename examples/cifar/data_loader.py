@@ -13,11 +13,11 @@ import data_downloader
 def unpickle( file ):
 	""" unpickle data - supported for python 2 and python 3 """
 	try: 
-		import cPickle
+		import cPickle # For python 2
 		fo = open(file, 'rb')
 		dict = cPickle.load(fo)
 	except ImportError:
-		import _pickle as cPickle
+		import _pickle as cPickle # For python 3
 		fo = open(file, 'rb')
 		dict = cPickle.load(fo, encoding='latin-1')
 
