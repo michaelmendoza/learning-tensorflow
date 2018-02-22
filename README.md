@@ -1,6 +1,6 @@
 # Learning Tensorflow
 
-This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Keras implmentations are also included as a comparison for some cases.
+This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Keras implmentations are also included as a comparison for some cases. (Code tested with python 2.7/3.2 using tensorflow 1.3 and keras 2.0)
 
 # Examples
 
@@ -8,7 +8,7 @@ This tutorial was created for learning tensorflow by example. Currently this rep
 A variety of neural network implementations for MNIST, and CFAR-10 datasets
 
 ### MNIST
-- Basic Neural Network ([tensorflow](examples/mnist/basic-net.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [tensorflow](examples/mnist/basic-net.py)) - A simple (single layer preception) network for classifying MNIST dataset 
 - Multi-layer Neural Nework ([tensorflow](examples/mnist/mlp-net.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
 - Convolutional Neural Nework ([tensorflow](examples/mnist/conv-net.py)) - A convolutional network for classifying MNIST dataset 
 
