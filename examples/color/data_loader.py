@@ -8,14 +8,14 @@ import matplotlib.pyplot as plt
 import math
 import cairo
 
-WIDTH = 32
-HEIGHT = 32
+WIDTH = 128
+HEIGHT = 128
 CHANNELS = 3
 
 class DataGenerator:
 
     def __init__(self):
-        self.size = 100
+        self.size = 1000
         self.ratio = 0.8
         self.generate();
 
@@ -30,13 +30,24 @@ class DataGenerator:
         ctx.rectangle (0, 0, 1, 1)  # Rectangle(x0, y0, x1, y1) 
         ctx.fill()
 
-        ctx.set_source_rgb(0, 0, 1)
+        # Create random colored boxes
         for _ in range(50):
+            rc = np.random.rand(3)
+            ctx.set_source_rgb(rc[0], rc[1], rc[2])
+
             r = np.random.rand(2)
             ctx.translate (r[0], r[1])      # Changing the current transformation matrix
             ctx.rectangle (0, 0, 0.1, 0.1)  # Rectangle(x0, y0, x1, y1)
             ctx.fill()
             ctx.translate (-r[0], -r[1])    # Changing the current transformation matrix
+
+        # Create a randomly placed red box
+        ctx.set_source_rgb(0, 0, 1)
+        r = np.random.rand(2)
+        ctx.translate (r[0], r[1])      # Changing the current transformation matrix
+        ctx.rectangle (0, 0, 0.1, 0.1)  # Rectangle(x0, y0, x1, y1)
+        ctx.fill()
+        ctx.translate (-r[0], -r[1])
 
         img = data[:,:,0:3]
         return img;
@@ -53,7 +64,7 @@ class DataGenerator:
         for _ in range(self.size - 2):
             img = self.generate_image()
             self.data = np.concatenate( (self.data, img[None,:]), axis=0)
-
+        
         # Generate truth data
         threshold = [200, 0, 0]
         self.label = np.all(np.greater_equal(self.data, threshold), axis=3) * 1.0;

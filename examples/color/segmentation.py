@@ -11,7 +11,7 @@ import tensorflow as tf
 import matplotlib
 import matplotlib.pyplot as plt
 import os
-#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Import Dataset
 from data_loader import DataGenerator
@@ -20,12 +20,12 @@ data.print()
 
 # Training Parameters
 learning_rate = 0.0001
-num_steps = 1000
-batch_size = 128
+num_steps = 10000 
+batch_size = 32
 display_step = 100
 
-# Network Parameters
-WIDTH = 32; HEIGHT = 32; CHANNELS = 3
+# Network Parameters 
+WIDTH = 128; HEIGHT = 128; CHANNELS = 3
 NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
 NUM_OUTPUTS = 2
 NUM_C1 = 32
@@ -90,5 +90,5 @@ segmentation = sess.run(segmentation, feed_dict={ X: data.x_test, Y: data.y_test
 print(segmentation.shape)
 index = 0;
 matplotlib.image.imsave('results/real-img.png', data.x_test[index], cmap='gray') 
-matplotlib.image.imsave('results/real-test.png', data.y_test[index][:,:,0], cmap='gray') 
+matplotlib.image.imsave('results/real-test.png', data.y_test[index][:,:,1], cmap='gray') 
 matplotlib.image.imsave('results/real-results.png', segmentation[index], cmap='gray') 
