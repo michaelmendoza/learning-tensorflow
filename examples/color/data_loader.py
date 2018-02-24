@@ -58,11 +58,7 @@ class DataGenerator:
         threshold = [200, 0, 0]
         self.label = np.all(np.greater_equal(self.data, threshold), axis=3) * 1.0;
         self.label = np.reshape(self.label, (self.size, WIDTH, HEIGHT, 1))
-        self.label = np.concatenate( (self.label, 1 - self.label), axis=3)
-
-        # Reshape 
-        #self.data = np.reshape(self.data, (self.size, WIDTH * HEIGHT * CHANNELS))
-        #self.label = np.reshape(self.label, (self.size, WIDTH * HEIGHT * 2))
+        self.label = np.concatenate( (1 - self.label, self.label), axis=3) # Index 0: Incorrect, Index 1: Correct
 
         # Setup data
         #self.data = self.whiten_data(self.data)
@@ -76,14 +72,12 @@ class DataGenerator:
 
     def show(self, index):
         ''' Show a data slice at index'''
-        #img = np.reshape(self.data[index], (WIDTH, HEIGHT, CHANNELS))
         img = self.data[index]
         plt.imshow(img)
         plt.show()
 
     def show_label(self, index):
         ''' Show a truth data slice at index'''
-        #img = np.reshape(self.label[index], (WIDTH, HEIGHT, 2))
         img = self.label[index]
         plt.imshow(img[:,:,0], cmap='gray')
         plt.show()  

@@ -53,7 +53,7 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 trainer = optimizer.minimize(loss)
 
 # Evaluate model
-prediction_state = tf.argmax(prediction, 3)
+segmentation = tf.argmax(prediction, 3)
 correct_pred = tf.equal(tf.argmax(prediction, 3), tf.argmax(Y, 3))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
@@ -85,11 +85,10 @@ plt.ylabel("Accuracy")
 plt.title("Accuracy for Color Segmentation")
 plt.show()
 
-
 # Show results
-predict = sess.run(correct_pred, feed_dict={ X: data.x_test, Y: data.y_test })
-print(predict.shape)
+segmentation = sess.run(segmentation, feed_dict={ X: data.x_test, Y: data.y_test })
+print(segmentation.shape)
 index = 0;
 matplotlib.image.imsave('results/real-img.png', data.x_test[index], cmap='gray') 
 matplotlib.image.imsave('results/real-test.png', data.y_test[index][:,:,0], cmap='gray') 
-matplotlib.image.imsave('results/real-results.png', predict[index], cmap='gray') 
+matplotlib.image.imsave('results/real-results.png', segmentation[index], cmap='gray') 
