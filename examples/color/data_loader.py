@@ -20,7 +20,8 @@ class DataGenerator:
         self.generate();
 
     def generate_image(self):
-        ''' Randomly generates an image with random boxes '''
+        ''' Randomly generates an image with random boxes '''    
+
         data = np.zeros( (HEIGHT,WIDTH, 4), dtype=np.uint8 ) 
         surface = cairo.ImageSurface.create_for_data( data, cairo.FORMAT_ARGB32, WIDTH, HEIGHT )
         ctx = cairo.Context( surface )
@@ -72,7 +73,7 @@ class DataGenerator:
         self.label = np.concatenate( (1 - self.label, self.label), axis=3) # Index 0: Incorrect, Index 1: Correct
 
         # Setup data
-        #self.data = self.whiten_data(self.data)
+        self.data = self.whiten_data(self.data)
 
         # Split data into test/training sets
         index = int(self.ratio * len(self.data)) # Split index
