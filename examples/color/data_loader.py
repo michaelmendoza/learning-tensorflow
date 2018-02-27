@@ -54,9 +54,20 @@ class DataGenerator:
         return img;
 
     def whiten_data(self, features):
-        """ whiten our data - zero mean and unit standard deviation """
-        features = (features - np.mean(features, axis=0)) / np.std(features, axis=0)
+        """ whiten dataset - zero mean and unit standard deviation """
+        features = np.reshape(features, (self.size, WIDTH * HEIGHT * CHANNELS))
+        features = (np.swapaxes(features,0,1) - np.mean(features, axis=1)) / np.std(features, axis=1)
+        features = np.swapaxes(features,0,1)
+        features = np.reshape(features, (self.size, WIDTH, HEIGHT, CHANNELS))
+        #features = (features - np.mean(features, axis=0)) / np.std(features, axis=0)
         return features
+
+    def unwhiten_img(self, img): 
+        """ remove whitening for a single image """ 
+        img = np.reshape(img, (WIDTH * HEIGHT * CHANNELS))
+        img = (img - np.min(img)) / (np.max(img) - np.min(img)) 
+        img = np.reshape(img, (WIDTH, HEIGHT, CHANNELS))
+        return img
 
     def generate(self):
         ''' Generates a randomly generated dataset '''
@@ -72,7 +83,7 @@ class DataGenerator:
         self.label = np.reshape(self.label, (self.size, WIDTH, HEIGHT, 1))
         self.label = np.concatenate( (1 - self.label, self.label), axis=3) # Index 0: Incorrect, Index 1: Correct
 
-        # Setup data
+        # Setup data 
         self.data = self.whiten_data(self.data)
 
         # Split data into test/training sets
@@ -84,7 +95,7 @@ class DataGenerator:
 
     def show(self, index):
         ''' Show a data slice at index'''
-        img = self.data[index]
+        img = self.unwhiten_img( self.data[index] )
         plt.imshow(img)
         plt.show()
 

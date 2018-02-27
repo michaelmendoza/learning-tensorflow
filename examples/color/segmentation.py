@@ -36,7 +36,7 @@ X = tf.placeholder(tf.float32, [None, HEIGHT, WIDTH, CHANNELS])  # Input
 Y = tf.placeholder(tf.float32, [None, HEIGHT, WIDTH, NUM_OUTPUTS]) # Truth Data - Output
 
 # Network Architecture
-def network(x):
+def simple_net(x):
 
     he_init = tf.contrib.layers.variance_scaling_initializer()
     conv1 = tf.layers.conv2d(x,     NUM_C1, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h1')
@@ -45,7 +45,7 @@ def network(x):
     prediction = tf.nn.softmax(logits)
     return logits, prediction
 
-def unet_simple(x):
+def simple_unet(x):
 
     he_init = tf.contrib.layers.variance_scaling_initializer()
     conv1 = tf.layers.conv2d(x,     32, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='Conv1')
@@ -105,10 +105,11 @@ def unet(x):
     
     logits = tf.layers.conv2d(conv9, NUM_OUTPUTS, [1, 1], padding="SAME", activation=None, kernel_initializer=he_init, name='Output')
     prediction = tf.nn.softmax(logits)
+
     return logits, prediction
 
 # Define loss and optimizer
-logits, prediction = unet(X) #unet_simple(X) # network(X) 
+logits, prediction = unet(X) #simple_unet(X) # simple_net(X) 
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y))
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 trainer = optimizer.minimize(loss)
@@ -151,6 +152,6 @@ plt.savefig('results/segmentation-accuracy.png')
 segmentation = sess.run(segmentation, feed_dict={ X: data.x_test, Y: data.y_test })
 print(segmentation.shape)
 index = 0;
-matplotlib.image.imsave('results/real-img.png', data.x_test[index], cmap='gray') 
+matplotlib.image.imsave('results/real-img.png', data.unwhiten_img(data.x_test[index]), cmap='gray') 
 matplotlib.image.imsave('results/real-test.png', data.y_test[index][:,:,1], cmap='gray') 
 matplotlib.image.imsave('results/real-results.png', segmentation[index], cmap='gray') 
