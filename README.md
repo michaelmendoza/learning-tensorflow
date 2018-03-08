@@ -1,10 +1,10 @@
 # Learning Tensorflow
 This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Keras implmentations are also included as a comparison for some cases. 
 
-## Installation
+### Installation
 This code is tested with python 2.7/3.2 using tensorflow 1.3 and keras 2.0. Installation instructions for Windows can be found [here](install.md). For installation on Mac/Linux search for information on the main tensorflow [website](https://www.tensorflow.org/install/).
 
-## Examples
+# Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
 
 ## Classification
@@ -29,5 +29,5 @@ Tensorflow implementation for simple color segmentation ([tensorflow](examples/c
 Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non-linear_regression.py))
 
 ## Modeling Fourier Transform / FFT
-Neural netowrk implementation for learning a fourier transform ([tensorflow](examples/fft/fft.py))
+Neural network implementation for learning a fourier transform ([tensorflow](examples/fft/fft.py))
 
