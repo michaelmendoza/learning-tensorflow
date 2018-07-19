@@ -119,6 +119,12 @@ segmentation = tf.argmax(prediction, 3)
 correct_pred = tf.equal(tf.argmax(prediction, 3), tf.argmax(Y, 3))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
+falsePositives = tf.greater(tf.argmax(prediction, 3), tf.argmax(Y, 3))
+falsePositives = tf.reduce_mean(tf.cast(falsePositives, tf.float32))
+
+falseNegative = tf.less(tf.argmax(prediction, 3), tf.argmax(Y, 3))
+falseNegative = tf.reduce_mean(tf.cast(falseNegative, tf.float32))
+
 # Initalize varibles, and run network 
 init = tf.global_variables_initializer()
 sess = tf.Session()

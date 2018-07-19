@@ -45,7 +45,7 @@ def network():
     conv1 = tf.layers.conv2d(x,     NUM_C1, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h1')
     conv2 = tf.layers.conv2d(conv1, NUM_C2, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h2')
     pool1 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
-
+    
     # Reshape to fit to fully connected layer input
     flatten = tf.contrib.layers.flatten(pool1)
 

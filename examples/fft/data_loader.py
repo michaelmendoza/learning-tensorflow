@@ -20,7 +20,7 @@ class DataLoader:
 
     def load(self):
 
-        filepath = '.'
+        filepath = './examples/fft/'
         filename = 'shepp256.png'
         img = mpimg.imread(os.path.join(filepath, filename))
         img = np.array(img)
@@ -31,7 +31,7 @@ class DataLoader:
 
         kSpace = np.fft.ifftshift(np.fft.fft2(img))
         inverse = np.fft.ifft2(kSpace)
-
+        
         self.input = np.dstack((np.abs(kSpace), np.angle(kSpace)))
         self.output = np.dstack((np.abs(inverse), np.angle(inverse)))
 

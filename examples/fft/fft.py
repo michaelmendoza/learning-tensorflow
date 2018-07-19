@@ -15,13 +15,13 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Import Dataset
-from data_loader import DataLoader
+from .data_loader import DataLoader
 data = DataLoader()
 print('Data Loaded')
 
 # Training Parameters
 learning_rate = 0.0001
-num_steps = 10000
+num_steps = 2000
 batch_size = 32
 display_step = 100
 
@@ -52,7 +52,7 @@ init = tf.global_variables_initializer()
 sess = tf.Session()
 sess.run(init)
 
-print ('Start Training: BatchSize:', batch_size,' LearningRate:', learning_rate)
+print ('Start Training: BatchSize:', batch_size,' LearningRate:', learning_rate, 'Total Steps:', num_steps)
 
 for step in range(num_steps):
     x, y = data.get()

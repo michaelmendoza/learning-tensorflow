@@ -1,6 +1,8 @@
 
 *.pyc
 .ipynb_checkpoints/
+__pycache__/
 
 MNIST_data/
 cifar-10-batches-py/
+results/

@@ -54,7 +54,7 @@ def load_data(ratio = 0.8):
 	d = unpickle('cifar-10-batches-py/test_batch')
 	_x = np.vstack((_x, d['data']))
 	_y = np.concatenate((_y, d['labels']), axis=0)
-
+	
 	# Process data i.e. whitten input data, and set output data as a one hot vector
 	_x = whiten_data(_x)
 	_y = np.array(list(map(one_hot_vec, _y)))
@@ -84,8 +84,7 @@ class DataLoader():
 		indices = np.random.randint(0, length, batch_size) # Grab batch_size values randomly
 		return [self.x_train[indices], self.y_train[indices]]
 
-
-
-
-
+if __name__ == '__main__':
+	#loader = DataLoader()
+	pass
 
