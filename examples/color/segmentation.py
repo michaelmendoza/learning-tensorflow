@@ -28,8 +28,6 @@ display_step = 100
 WIDTH = 128; HEIGHT = 128; CHANNELS = 3
 NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
 NUM_OUTPUTS = 2
-NUM_C1 = 32
-NUM_C2 = 32
 
 # Network Varibles and placeholders
 X = tf.placeholder(tf.float32, [None, HEIGHT, WIDTH, CHANNELS])  # Input
@@ -39,8 +37,8 @@ Y = tf.placeholder(tf.float32, [None, HEIGHT, WIDTH, NUM_OUTPUTS]) # Truth Data 
 def simple_net(x):
 
     he_init = tf.contrib.layers.variance_scaling_initializer()
-    conv1 = tf.layers.conv2d(x,     NUM_C1, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h1')
-    conv2 = tf.layers.conv2d(conv1, NUM_C2, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h2')
+    conv1 = tf.layers.conv2d(x,     32, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h1')
+    conv2 = tf.layers.conv2d(conv1, 32, [3, 3], padding="SAME", activation=tf.nn.relu, kernel_initializer=he_init, name='h2')
     logits = tf.layers.conv2d(conv2, NUM_OUTPUTS, [1, 1], padding="SAME", activation=None, kernel_initializer=he_init, name='output')
     prediction = tf.nn.softmax(logits)
     return logits, prediction

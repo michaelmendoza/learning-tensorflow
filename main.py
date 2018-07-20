@@ -17,6 +17,6 @@ examples = {
 
 if __name__ == '__main__':
     
-    module = examples['fft']
+    module = examples['mnist-0']
     importlib.import_module(module)
 
