@@ -95,8 +95,8 @@ for step in range(num_steps):
 # Plot Accuracy 
 plt.plot(_step, np.log(_loss), label="test accuracy")
 plt.xlabel("Steps")
-plt.ylabel("Accuracy")
-plt.title("Accuracy for Angle Classification")
+plt.ylabel("Loss")
+plt.title("Loss for Angle Estimatation")
 plt.show()
 
 pred = sess.run(prediction, feed_dict={X: data.x_test})
