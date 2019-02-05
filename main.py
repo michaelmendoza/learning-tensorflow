@@ -1,8 +1,13 @@
 
 import importlib
+import sys
 
 # Supported examples
 examples = { 
+    'keras-mnist-0': 'examples.mnist.keras_mnist_0',
+    'keras-mnist-1': 'examples.mnist.keras_mnist_1',
+    'keras-mnist-2': 'examples.mnist.keras_mnist_2',
+    
     'mnist-0':   'examples.mnist.basic_net',
     'mnist-1':   'examples.mnist.conv_net',
     'mnist-2':   'examples.mnist.mlp_net',
@@ -17,6 +22,9 @@ examples = {
 
 if __name__ == '__main__':
     
-    module = examples['mnist-0']
-    importlib.import_module(module)
-
+    if(len(sys.argv) > 1):
+        module = examples[sys.argv[1]]
+        importlib.import_module(module)
+    else:
+        module = examples['mnist-0']
+        importlib.import_module(module)
