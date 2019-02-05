@@ -22,9 +22,9 @@ Examples of tensorflow implementations for Classification, Segmentation, Regress
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
 ### MNIST
-- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [tensorflow](examples/mnist/basic_net.py), [keras](examples/cifar/keras_mnist_0.py)) - A simple (single layer preception) network for classifying MNIST dataset 
-- Multi-layer Neural Nework ([tensorflow](examples/mnist/mlp_net.py), [keras](examples/cifar/keras_mnist_1.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
-- Convolutional Neural Nework ([tensorflow](examples/mnist/conv_net.py), [keras](examples/cifar/keras_mnist_2.py)) - A convolutional network for classifying MNIST dataset 
+- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [tensorflow](examples/mnist/basic_net.py), [keras](examples/mnist/keras_mnist_0.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+- Multi-layer Neural Nework ([tensorflow](examples/mnist/mlp_net.py), [keras](examples/mnist/keras_mnist_1.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
+- Convolutional Neural Nework ([tensorflow](examples/mnist/conv_net.py), [keras](examples/mnist/keras_mnist_2.py)) - A convolutional network for classifying MNIST dataset 
 
 ### CIFAR-10
 - Basic Neural Network ([tensorflow](examples/cifar/basic_net.py), [keras](examples/cifar/keras_basic.py)) - A simple (single layer preception) network for classifying CIFAR-10 dataset 
