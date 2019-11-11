@@ -10,7 +10,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
-mnist = tf.keras.datasets.mnist
 
 # Training Parameters
 learning_rate = 0.1
@@ -22,6 +21,7 @@ NUM_INPUTS = 784
 NUM_OUTPUTS = 10
 
 # Import Dataset
+mnist = tf.keras.datasets.mnist
 (x_train, y_train),(x_test, y_test) = mnist.load_data()
 x_train, x_test = x_train / 255.0, x_test / 255.0
 y_train = tf.keras.utils.to_categorical(y_train).astype(np.float32)
@@ -60,14 +60,13 @@ data = []
 epochs = range(num_epochs)
 for epoch in epochs:
     current_loss = loss(model(x_train), y_train)
-    test_loss = loss(model(x_test), y_test)
     acc = accuracy(model(x_test), y_test)
     data.append([epoch, acc])
-
+    
     train(model, x_train, y_train, learning_rate=0.1)
 
     if(epoch % display_step == 0):
-        print('Epoch %2d: loss=%2.5f test accuracy=%2.5f' % (epoch, current_loss, acc))
+        print('Epoch %2d: training loss=%2.5f test accuracy=%2.5f' % (epoch, current_loss, acc))
 
 # Plot Accuracy
 data = np.array(data)
