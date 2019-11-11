@@ -20,7 +20,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 (x_train, y_train),(x_test, y_test) = mnist.load_data()
 x_train, x_test = x_train / 255.0, x_test / 255.0
- 
 y_train = tf.keras.utils.to_categorical(y_train)
 y_test = tf.keras.utils.to_categorical(y_test)
 x_train = x_train.reshape(-1, NUM_INPUTS)
@@ -33,7 +32,7 @@ model.summary()
 
 start = time.time()
 history = model.fit(x_train, y_train, epochs=epochs, validation_split=0.2, shuffle=True)
-evaluation = model.evaluate(x_test, y_test, verbose=1)
+evaluation = model.evaluate(x_test, y_test, verbose=0)
 end = time.time()
 
 print('Summary: Accuracy: %.2f Time Elapsed: %.2f seconds' % (evaluation[1], (end - start)) )
