@@ -27,7 +27,9 @@ x_test = x_test.reshape (-1, NUM_INPUTS)
 
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Dense(NUM_OUTPUTS, activation='softmax', input_dim=NUM_INPUTS))
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+model.compile(optimizer='adam', 
+              loss='categorical_crossentropy', 
+              metrics=['categorical_accuracy'])
 model.summary()
 
 start = time.time()

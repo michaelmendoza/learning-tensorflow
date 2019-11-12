@@ -1,6 +1,6 @@
 
 '''
-Basic Code for a multi-layer neural network with two hidden layers
+Basic Code (updated for TF 2.0) for a multi-layer neural network with two hidden layers
 '''
 
 from __future__ import absolute_import, division, print_function
@@ -32,6 +32,7 @@ y_test = tf.keras.utils.to_categorical(y_test).astype(np.float32)
 x_train = x_train.reshape(-1, NUM_INPUTS).astype(np.float32)
 x_test = x_test.reshape (-1, NUM_INPUTS).astype(np.float32)
 
+# Network Architecture
 class Model(tf.keras.Model):
     def __init__(self):
         super(Model, self).__init__()
