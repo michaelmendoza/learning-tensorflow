@@ -1,6 +1,7 @@
 
 '''
-Basic Code (updated for TF 2.0) for a multi-layer neural network with two hidden layers
+Basic Code (updated for TF 2.0) for a multi-layer neural network with two hidden layers.
+Uses imperative style of creating networks with model subclassing API.
 '''
 
 from __future__ import absolute_import, division, print_function

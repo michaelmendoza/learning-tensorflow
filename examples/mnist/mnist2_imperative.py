@@ -1,6 +1,7 @@
 
 '''
 Basic Code (updated for TF 2.0) for a convolutional neural network with 2 conv layers, a max pool layer, and 2 full-connected layers
+Uses imperative style of creating networks with model subclassing API.
 '''
 
 from __future__ import absolute_import, division, print_function

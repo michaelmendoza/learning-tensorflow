@@ -13,7 +13,7 @@ Otherwise use: `pip install tensorflow`
 
 Activate this virtual environment with `source activate tf` (Mac) or `activate tf` (PC).
 
-(Note: This code is tested with python 3.6.8 using tensorflow-gpu 1.12)
+(Note: This code is updated with python 3.6.9 using tensorflow-gpu version 2.0)
 
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
@@ -22,9 +22,9 @@ Examples of tensorflow implementations for Classification, Segmentation, Regress
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
 ### MNIST
-- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [tensorflow](examples/mnist/basic_net.py), [keras](examples/mnist/keras_mnist_0.py)) - A simple (single layer preception) network for classifying MNIST dataset 
-- Multi-layer Neural Nework ([tensorflow](examples/mnist/mlp_net.py), [keras](examples/mnist/keras_mnist_1.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
-- Convolutional Neural Nework ([tensorflow](examples/mnist/conv_net.py), [keras](examples/mnist/keras_mnist_2.py)) - A convolutional network for classifying MNIST dataset 
+- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+- Multi-layer Neural Nework ([simple](examples/mnist/mnist1.py), [advanced](examples/mnist/mnist1_imperative.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
+- Convolutional Neural Nework ([simple](examples/mnist/mnist2.py), [advanced](examples/mnist/mnist2_imperative.py)) - A convolutional network for classifying MNIST dataset 
 
 ### CIFAR-10
 - Basic Neural Network ([tensorflow](examples/cifar/basic_net.py), [keras](examples/cifar/keras_basic.py)) - A simple (single layer preception) network for classifying CIFAR-10 dataset 

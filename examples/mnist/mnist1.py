@@ -1,6 +1,7 @@
 
 '''
-Basic Keras Code for a multi-layer neural network
+Basic Keras Code for a multi-layer neural network.
+Uses simple style of creating networks with Sequential API.
 '''
 
 # Training Parameters

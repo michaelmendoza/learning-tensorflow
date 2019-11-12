@@ -4,13 +4,12 @@ import sys
 
 # Supported examples
 examples = { 
-    'keras-mnist-0': 'examples.mnist.keras_mnist_0',
-    'keras-mnist-1': 'examples.mnist.keras_mnist_1',
-    'keras-mnist-2': 'examples.mnist.keras_mnist_2',
-    
-    'mnist-0':   'examples.mnist.basic_net',
-    'mnist-1':   'examples.mnist.mlp_net',
-    'mnist-2':   'examples.mnist.conv_net',
+    'mnist-0':   'examples.mnist.mnist0',
+    'mnist-1':   'examples.mnist.mnist1',
+    'mnist-2':   'examples.mnist.mnist2',
+    'mnist-b0':  'examples.mnist.mnist0_imperative',
+    'mnist-b1':  'examples.mnist.mnist1_imperative',
+    'mnist-b2':  'examples.mnist.mnist2_imperative',
     'cifar-0':   'examples.cifar.basic_net',
     'cifar-1':   'examples.cifar.mlp_net',
     'cifar-2':   'examples.cifar.conv_net',

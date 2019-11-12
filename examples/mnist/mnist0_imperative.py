@@ -1,6 +1,7 @@
 
 '''
-Tensorflow Code (updated for TF 2.0) for a single layer neural network
+Tensorflow Code (updated for TF 2.0) for a single layer neural network.
+Uses imperative style of creating networks with model subclassing API.
 '''
 
 from __future__ import absolute_import, division, print_function
@@ -62,7 +63,7 @@ for epoch in epochs:
     current_loss = loss(model(x_train), y_train)
     acc = accuracy(model(x_test), y_test)
     data.append([epoch, acc])
-    
+
     train(model, x_train, y_train, learning_rate=0.1)
 
     if(epoch % display_step == 0):
