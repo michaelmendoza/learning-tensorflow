@@ -1,5 +1,6 @@
 # Learning Tensorflow
-This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Keras implmentations are also included as a comparison for some cases. 
+
+This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Included are simple examples using keras sequential API and more advanced examples using the imperative style of creating networks with model subclassing API.
 
 ### Getting Started
 Installation requires python 3 with tensorflow. The easiest method to install the requisite libraries is to install the [conda package manager](https://conda.io/miniconda.html). Then run the following command to install necessary libraries and create a virtual environment call `tf`:
