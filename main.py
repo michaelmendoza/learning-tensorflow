@@ -14,8 +14,8 @@ examples = {
     'cifar-1':   'examples.cifar.mlp_net',
     'cifar-2':   'examples.cifar.conv_net',
     'segment-0': 'examples.color.segmentation',
-    'regress-0': 'examples.regress.linear_regression',
-    'regress-1': 'examples.regress.non_linear_regression',
+    'regress-0': 'examples.regression.linear_regression',
+    'regress-1': 'examples.regression.non_linear_regression',
     'fft':       'examples.fft.fft'
 }
 

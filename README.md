@@ -20,6 +20,9 @@ Activate this virtual environment with `source activate tf` (Mac) or `activate t
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
 
+## Regression
+Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non_linear_regression.py))
+
 ## Classification
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
@@ -38,9 +41,5 @@ A variety of neural network implementations for MNIST, and CFAR-10 datasets for 
 ## Segmentation
 Tensorflow implementation for simple color segmentation ([tensorflow](examples/color/segmentation.py))
 
-## Regression
-Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non_linear_regression.py))
-
 ## Modeling Fourier Transform / FFT
 Neural network implementation for learning a fourier transform ([tensorflow](examples/fft/fft.py))
-
