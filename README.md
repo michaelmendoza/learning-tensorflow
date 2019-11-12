@@ -1,4 +1,5 @@
 # Learning Tensorflow
+![Supports TFv2.0](https://img.shields.io/badge/Supports-tensorflow%20v2.0-blue.svg)
 
 This tutorial was created for learning tensorflow by example. Currently this repo contains examples for a simple single-layer neural network, a multi-layered perception neural network, and a convolutional neural network. Tensorflow implementations in this repo work with a variety of data sets. Included are simple examples using keras sequential API and more advanced examples using the imperative style of creating networks with model subclassing API.
 
