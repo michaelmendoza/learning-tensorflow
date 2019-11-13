@@ -6,6 +6,7 @@ Uses imperative style of creating networks with model subclassing API.
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
@@ -13,8 +14,8 @@ import tensorflow as tf
 # Create dataset
 N = 400
 data = lambda: None
-data.x = np.linspace(0, 1, N)
-data.y = 10 * np.exp(data.x) + 0.5 * 2 * np.random.rand(N)
+data.x = np.linspace(-1, 1, N)
+data.y = (10 * np.exp(data.x) + 2 * np.random.rand(N)) / (10 * math.exp(1))
 plt.scatter(data.x, data.y)
 
 # Training Parameters
