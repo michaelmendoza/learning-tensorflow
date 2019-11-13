@@ -15,7 +15,9 @@ Otherwise use: `pip install tensorflow`
 
 Activate this virtual environment with `source activate tf` (Mac) or `activate tf` (PC).
 
-(**Update**: Updated most examples for tensorflow 2.0!)
+**Update**: Updated most examples for tensorflow 2.0!
+
+If you are using older version of Tensorflow like 1.12, please look [here](https://github.com/michaelmendoza/learning-tensorflow/blob/tf-v1.12/README.md)
 
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
