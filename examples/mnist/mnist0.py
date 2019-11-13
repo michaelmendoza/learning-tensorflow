@@ -3,7 +3,7 @@
 Basic Keras Code for a single-layer neural network.
 Uses simple style of creating networks with Sequential API.
 '''
- 
+
 # Training Parameters
 epochs = 10
 
@@ -11,7 +11,7 @@ epochs = 10
 NUM_INPUTS = 784
 NUM_OUTPUTS = 10 
  
-import time
+import time 
 import tensorflow as tf
 import matplotlib.pyplot as plt
 mnist = tf.keras.datasets.mnist
