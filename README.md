@@ -15,7 +15,7 @@ Otherwise use: `pip install tensorflow`
 
 Activate this virtual environment with `source activate tf` (Mac) or `activate tf` (PC).
 
-(Note: This code is updated with python 3.6.9 using tensorflow-gpu version 2.0)
+(**Update**: Updated most examples for tensorflow 2.0!)
 
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
@@ -27,7 +27,7 @@ Neural network implementations for linear ([tensorflow](examples/regression/line
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
 ### MNIST
-- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+- Basic Neural Network ([tutorial v1](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
 - Multi-layer Neural Nework ([simple](examples/mnist/mnist1.py), [advanced](examples/mnist/mnist1_imperative.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
 - Convolutional Neural Nework ([simple](examples/mnist/mnist2.py), [advanced](examples/mnist/mnist2_imperative.py)) - A convolutional network for classifying MNIST dataset 
 
@@ -39,7 +39,7 @@ A variety of neural network implementations for MNIST, and CFAR-10 datasets for 
 - VGG network ([code](examples/cifar/cifar4.py), [paper](https://arxiv.org/pdf/1409.1556v6.pdf)) - A very deep convolutional network for large-scale image recongition
 
 ## Segmentation
-Tensorflow implementation for simple color segmentation ([tensorflow](examples/color/segmentation.py))
+Tensorflow implementation for simple color segmentation ([tensorflow v1](examples/color/segmentation.py))
 
 ## Modeling Fourier Transform / FFT
-Neural network implementation for learning a fourier transform ([tensorflow](examples/fft/fft.py))
+Neural network implementation for learning a fourier transform ([tensorflow v1](examples/fft/fft.py))
