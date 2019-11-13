@@ -15,7 +15,9 @@ Otherwise use: `pip install tensorflow`
 
 Activate this virtual environment with `source activate tf` (Mac) or `activate tf` (PC).
 
-**Update**: Updated most examples for tensorflow 2.0!
+### Notes
+
+**Update**: Updated most examples for tensorflow 2.0! Code still using Tensorflow 1.0 will be denoted with 'v1'
 
 If you are using older version of Tensorflow like 1.12, please look [here](https://github.com/michaelmendoza/learning-tensorflow/blob/tf-v1.12/README.md)
 
