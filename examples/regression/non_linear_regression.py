@@ -1,53 +1,39 @@
+'''
+Using tensorflow for regression with a simple neural network
+'''
+
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
+from tensorflow.keras.layers import Dense
 
-N = 100
-
-def gen():
-    # Create dataset
-    data = lambda: None
-    data.x = np.linspace(0, 3, N)
-    data.y = np.exp(data.x) + 2 * np.random.rand(N)
-    data.x = np.reshape(data.x, (-1, 1))
-    data.y = np.reshape(data.y, (-1, 1))
-    return data
+# Create dataset
+N = 400
+data = lambda: None
+data.x = np.linspace(-1, 1, N)
+data.y = (10 * np.exp(data.x) + 2 * np.random.rand(N)) / (10 * math.exp(1))
+plt.scatter(data.x, data.y)
 
 # Training Parameters
-learning_rate = 0.01
-num_steps = 1000
-
-# Setup Network
-X = tf.placeholder(tf.float32, [None, 1])
-Y = tf.placeholder(tf.float32, [None, 1])
+num_epochs = 100
 
 # Define Network
-fc1 = tf.layers.dense(X, 100, activation=tf.nn.relu, name='fc1')
-fc2 = tf.layers.dense(fc1, 100, activation=tf.nn.relu, name='fc2')
-Y_pred = tf.layers.dense(fc2, 1, name='out')
+model = tf.keras.models.Sequential([
+    Dense(256, activation=tf.nn.relu, input_shape=[1]),
+    Dense(256, activation=tf.nn.relu),
+    Dense(1)
+])
+model.compile(optimizer='adam',
+              loss='mean_squared_error')
+model.summary()
 
-# Define loss and optimizer
-loss = tf.square(Y_pred - Y)
-optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
-
-# Initalize varibles, and run network 
-init = tf.global_variables_initializer()
-sess = tf.Session()
-sess.run(init)
-
-# Train 
-for step in range(num_steps):
-    data = gen()
-    sess.run(optimizer, feed_dict={X:data.x, Y:data.y})
-
-_x = np.reshape(np.linspace(0, 3, 10 * N), (-1,1))
-_y = sess.run(Y_pred, feed_dict={X:_x})
-
-# Reshape
-x = np.reshape(data.x, (-1)); y = np.reshape(data.y, (-1))
-_y = np.reshape(_y, (-1)); _x = np.reshape(_x, (-1))
+history = model.fit(data.x, data.y, epochs=num_epochs, validation_split=0.2, shuffle=True)
+predictions = model.predict(data.x)
 
 # Plot Results
-plt.scatter(x, y)
-plt.plot(_x, _y, 'r')
+plt.plot(data.x, predictions, 'r')
 plt.show()

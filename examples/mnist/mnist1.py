@@ -1,6 +1,7 @@
 
 '''
-Basic Keras Code for a multi-layer neural network
+Basic Keras Code for a multi-layer neural network.
+Uses simple style of creating networks with Sequential API.
 '''
 
 # Training Parameters
@@ -30,18 +31,19 @@ model = tf.keras.models.Sequential([
 
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
+              metrics=['sparse_categorical_accuracy'])
 model.summary()
 
 start = time.time();
 history = model.fit(x_train, y_train, epochs=10, validation_split=0.2, shuffle=True)
-evaluation = model.evaluate(x_test, y_test, verbose=1)
+evaluation = model.evaluate(x_test, y_test, verbose=0)
 end = time.time()
 print("Training Complete in " + "{0:.2f}".format(end - start) + " secs" )
 
 # Plot Accuracy 
-plt.plot(history.history["acc"]);
-plt.plot(history.history["val_acc"]);
+print(history.history)
+plt.plot(history.history["sparse_categorical_accuracy"])
+plt.plot(history.history["val_sparse_categorical_accuracy"])
 plt.ylabel("Accuracy")
 plt.xlabel("Epochs")
 plt.legend(["Train Accuracy", "Test Accuracy"], loc="upper left")
