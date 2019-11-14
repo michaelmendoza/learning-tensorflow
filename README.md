@@ -27,7 +27,7 @@ Examples of tensorflow implementations for Classification, Segmentation, Regress
 ## Regression
 Linear regression from scatch with Tensorflow ([tutorial](/notebooks/0b%20-%20Regression%20from%20Scratch%20with%20Tensorflow.ipynb))
 
-Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non_linear_regression.py))
+Non-linear regression with Tensorflow and Keras API ([tutorial](notebooks/0c%20-%20Regression%20with%20Tensorflow%20and%20Keras%20API.ipynb))
 
 ## Classification
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
