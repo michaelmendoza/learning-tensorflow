@@ -24,6 +24,8 @@ If you are using older version of Tensorflow like 1.12, please look [here](https
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
 
+## Basics
+
 Python basics ([tutorial](notebooks/0a%20-%20Python%20Basics.ipynb))
 
 ## Regression
@@ -37,8 +39,8 @@ A variety of neural network implementations for MNIST, and CFAR-10 datasets for 
 ### MNIST
 Classifying using MNIST Dataset
 
-- Basic Neural Network from scatch with Tensorflow 2.0 ([tutorial](notebooks/1a%20-%20Simple%20Neural%20Network.ipynb)
-- Basic Neural Network with simple Keras APIs ([code](examples/mnist/mnist0.py)
+- Basic Neural Network from scatch with Tensorflow 2.0 ([tutorial](notebooks/1a%20-%20Simple%20Neural%20Network.ipynb))
+- Basic Neural Network with simple Keras APIs ([tutorial](notebooks/1b%20-%20Simple%20Neural%20Network%20with%20Keras.ipynb))
 - Multi-layer Neural Nework ([simple](examples/mnist/mnist1.py), [advanced](examples/mnist/mnist1_imperative.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
 - Convolutional Neural Nework ([simple](examples/mnist/mnist2.py), [advanced](examples/mnist/mnist2_imperative.py)) - A convolutional network for classifying MNIST dataset 
 
