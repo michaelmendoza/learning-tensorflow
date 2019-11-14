@@ -15,7 +15,11 @@ Otherwise use: `pip install tensorflow`
 
 Activate this virtual environment with `source activate tf` (Mac) or `activate tf` (PC).
 
-(Note: This code is updated with python 3.6.9 using tensorflow-gpu version 2.0)
+### Notes
+
+**Update**: Updated most examples for tensorflow 2.0! Code still using Tensorflow 1.0 will be denoted with 'v1'
+
+If you are using older version of Tensorflow like 1.12, please look [here](https://github.com/michaelmendoza/learning-tensorflow/blob/tf-v1.12/README.md)
 
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
@@ -27,19 +31,19 @@ Neural network implementations for linear ([tensorflow](examples/regression/line
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
 ### MNIST
-- Basic Neural Network ([tutorial](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+- Basic Neural Network ([tutorial v1](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
 - Multi-layer Neural Nework ([simple](examples/mnist/mnist1.py), [advanced](examples/mnist/mnist1_imperative.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
 - Convolutional Neural Nework ([simple](examples/mnist/mnist2.py), [advanced](examples/mnist/mnist2_imperative.py)) - A convolutional network for classifying MNIST dataset 
 
 ### CIFAR-10
-- Basic Neural Network ([tensorflow](examples/cifar/basic_net.py), [keras](examples/cifar/keras_basic.py)) - A simple (single layer preception) network for classifying CIFAR-10 dataset 
-- Multi-layer Neural Nework ([tensorflow](examples/cifar/mlp_net.py), [keras](examples/cifar/keras_mlp.py)) - A simple (multi-layer preception) network for classifying CIFAR-10 dataset 
-- Convolutional Neural Nework ([tensorflow](examples/cifar/conv_net.py), [keras](examples/cifar/keras_conv.py)) - A convolutional network for classifying CIFAR-10 dataset
-- Convolutional Neural Nework ([keras](examples/cifar/keras_nine_layer_conv.py)) - A convolutional network (6-conv, 3 max pool, 2 fully-connected layers) with Dropout for classifying CIFAR-10 dataset 
-- VGG network ([keras](examples/cifar/keras_vgg.py), [paper](https://arxiv.org/pdf/1409.1556v6.pdf)) - A very deep convolutional network for large-scale image recongition
+- Basic Neural Network ([code](examples/cifar/cifar0.py)) - A simple (single layer preception) network for classifying CIFAR-10 dataset 
+- Multi-layer Neural Nework ([code](examples/cifar/cifar1.py)) - A simple (multi-layer preception) network for classifying CIFAR-10 dataset 
+- Convolutional Neural Nework ([code](examples/cifar/cifar2.py)) - A convolutional network for classifying CIFAR-10 dataset
+- Convolutional Neural Nework ([code](examples/cifar/cifar3.py)) - A convolutional network (6-conv, 3 max pool, 2 fully-connected layers) with Dropout for classifying CIFAR-10 dataset 
+- VGG network ([code](examples/cifar/cifar4.py), [paper](https://arxiv.org/pdf/1409.1556v6.pdf)) - A very deep convolutional network for large-scale image recongition
 
 ## Segmentation
-Tensorflow implementation for simple color segmentation ([tensorflow](examples/color/segmentation.py))
+Tensorflow implementation for simple color segmentation ([tensorflow v1](examples/color/segmentation.py))
 
 ## Modeling Fourier Transform / FFT
-Neural network implementation for learning a fourier transform ([tensorflow](examples/fft/fft.py))
+Neural network implementation for learning a fourier transform ([tensorflow v1](examples/fft/fft.py))

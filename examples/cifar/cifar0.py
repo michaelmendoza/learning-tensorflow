@@ -10,9 +10,10 @@ from __future__ import print_function
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
  
-from keras.models import Sequential
-from keras.layers import Dense
- 
+import tensorflow as tf 
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
 # Import Dataset
 from data_loader import DataLoader
 cifar = DataLoader()

@@ -10,11 +10,11 @@ from __future__ import print_function
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
- 
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
  
 # Import Dataset
 from data_loader import DataLoader
