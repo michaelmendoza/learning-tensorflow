@@ -25,6 +25,8 @@ If you are using older version of Tensorflow like 1.12, please look [here](https
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
 
 ## Regression
+Linear regression from scatch with Tensorflow ([tutorial](/notebooks/0b%20-%20Regression%20from%20Scratch%20with%20Tensorflow.ipynb))
+
 Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non_linear_regression.py))
 
 ## Classification
