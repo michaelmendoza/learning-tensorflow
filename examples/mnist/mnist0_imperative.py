@@ -53,6 +53,12 @@ def train(model, inputs, outputs, learning_rate):
     dW, db = t.gradient(current_loss, [model.W, model.b])
     model.W.assign_sub(learning_rate * dW)
     model.b.assign_sub(learning_rate * db)
+    return current_loss
+
+@tf.function
+def test(model, inputs, outputs):
+    prediction = model(inputs)
+    return accuracy(prediction, outputs)
 
 model = Model()
 
@@ -60,11 +66,9 @@ model = Model()
 data = []
 epochs = range(num_epochs)
 for epoch in epochs:
-    current_loss = loss(model(x_train), y_train)
+    current_loss =  train(model, x_train, y_train, learning_rate=0.1)
     acc = accuracy(model(x_test), y_test)
     data.append([epoch, acc])
-
-    train(model, x_train, y_train, learning_rate=0.1)
 
     if(epoch % display_step == 0):
         print('Epoch %2d: training loss=%2.5f test accuracy=%2.5f' % (epoch, current_loss, acc))

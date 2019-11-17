@@ -24,14 +24,23 @@ If you are using older version of Tensorflow like 1.12, please look [here](https
 # Examples
 Examples of tensorflow implementations for Classification, Segmentation, Regression and Modeling Fourier Transform
 
+## Basics
+
+Python basics ([tutorial](notebooks/0a%20-%20Python%20Basics.ipynb))
+
 ## Regression
-Neural network implementations for linear ([tensorflow](examples/regression/linear_regression.py)) and non-linear regressions ([tensorflow](examples/regression/non_linear_regression.py))
+Linear regression from scatch with Tensorflow 2.0 ([tutorial](/notebooks/0b%20-%20Regression%20from%20Scratch%20with%20Tensorflow.ipynb))
+
+Non-linear regression with Tensorflow 2.0 and Keras API ([tutorial](notebooks/0c%20-%20Regression%20with%20Tensorflow%20and%20Keras%20API.ipynb))
 
 ## Classification
 A variety of neural network implementations for MNIST, and CFAR-10 datasets for classification
 
 ### MNIST
-- Basic Neural Network ([tutorial v1](notebooks/mnist/0_Single_Layer_Network_Tutorial.ipynb), [simple](examples/mnist/mnist0.py), [advanced](examples/mnist/mnist0_imperative.py)) - A simple (single layer preception) network for classifying MNIST dataset 
+Classifying using MNIST Dataset
+
+- Basic Neural Network from scatch with Tensorflow 2.0 ([tutorial](notebooks/1a%20-%20Simple%20Neural%20Network.ipynb))
+- Basic Neural Network with simple Keras APIs ([tutorial](notebooks/1b%20-%20Simple%20Neural%20Network%20with%20Keras.ipynb))
 - Multi-layer Neural Nework ([simple](examples/mnist/mnist1.py), [advanced](examples/mnist/mnist1_imperative.py)) - A simple (multi-layer preception) network for classifying MNIST dataset 
 - Convolutional Neural Nework ([simple](examples/mnist/mnist2.py), [advanced](examples/mnist/mnist2_imperative.py)) - A convolutional network for classifying MNIST dataset 
 
@@ -43,7 +52,7 @@ A variety of neural network implementations for MNIST, and CFAR-10 datasets for 
 - VGG network ([code](examples/cifar/cifar4.py), [paper](https://arxiv.org/pdf/1409.1556v6.pdf)) - A very deep convolutional network for large-scale image recongition
 
 ## Segmentation
-Tensorflow implementation for simple color segmentation ([tensorflow v1](examples/color/segmentation.py))
+Tensorflow implementation for simple color segmentation using a Unet ([tutorial](notebooks/Segmentation.ipynb))
 
 ## Modeling Fourier Transform / FFT
 Neural network implementation for learning a fourier transform ([tensorflow v1](examples/fft/fft.py))

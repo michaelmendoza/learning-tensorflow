@@ -17,6 +17,12 @@ class DataGenerator:
     def __init__(self):
         self.size = 1000
         self.ratio = 0.8
+        self.threshold = [128, 0, 0]
+
+        self.WIDTH = WIDTH
+        self.HEIGHT = HEIGHT
+        self.CHANNELS = CHANNELS
+
         self.generate();
 
     def generate_image(self):
@@ -78,8 +84,7 @@ class DataGenerator:
             self.data = np.concatenate( (self.data, img[None,:]), axis=0)
         
         # Generate truth data
-        threshold = [200, 0, 0]
-        self.label = np.all(np.greater_equal(self.data, threshold), axis=3) * 1.0;
+        self.label = np.all(np.greater_equal(self.data, self.threshold), axis=3) * 1.0;
         self.label = np.reshape(self.label, (self.size, WIDTH, HEIGHT, 1))
         self.label = np.concatenate( (1 - self.label, self.label), axis=3) # Index 0: Incorrect, Index 1: Correct
 
@@ -88,10 +93,14 @@ class DataGenerator:
 
         # Split data into test/training sets
         index = int(self.ratio * len(self.data)) # Split index
-        self.x_train = self.data[0:index, :]
-        self.y_train = self.label[0:index]
-        self.x_test = self.data[index:,:]
-        self.y_test = self.label[index:]
+        self.x_train = self.data[0:index, :].astype(np.float32)
+        self.y_train = self.label[0:index].astype(np.float32)
+        self.x_test = self.data[index:,:].astype(np.float32)
+        self.y_test = self.label[index:].astype(np.float32)
+
+        # Data lengths
+        self.train_length = self.x_train.shape[0]
+        self.test_length = self.x_test.shape[0]
 
     def show(self, index):
         ''' Show a data slice at index'''
@@ -117,6 +126,9 @@ class DataGenerator:
         length = self.x_train.shape[0]
         indices = np.random.randint(0, length, batch_size) # Grab batch_size values randomly
         return [self.x_train[indices], self.y_train[indices]]
+
+    def batch_count(self, batch_size):
+        return math.floor(self.train_length / batch_size)
 
 if __name__ == '__main__':
     data = DataGenerator()
