@@ -98,6 +98,10 @@ class DataGenerator:
         self.x_test = self.data[index:,:].astype(np.float32)
         self.y_test = self.label[index:].astype(np.float32)
 
+        # Data lengths
+        self.train_length = self.x_train.shape[0]
+        self.test_length = self.x_test.shape[0]
+
     def show(self, index):
         ''' Show a data slice at index'''
         img = self.unwhiten_img( self.data[index] )
@@ -122,6 +126,9 @@ class DataGenerator:
         length = self.x_train.shape[0]
         indices = np.random.randint(0, length, batch_size) # Grab batch_size values randomly
         return [self.x_train[indices], self.y_train[indices]]
+
+    def batch_count(self, batch_size):
+        return math.floor(self.train_length / batch_size)
 
 if __name__ == '__main__':
     data = DataGenerator()

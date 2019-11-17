@@ -52,7 +52,7 @@ Classifying using MNIST Dataset
 - VGG network ([code](examples/cifar/cifar4.py), [paper](https://arxiv.org/pdf/1409.1556v6.pdf)) - A very deep convolutional network for large-scale image recongition
 
 ## Segmentation
-Tensorflow implementation for simple color segmentation ([tensorflow v1](examples/color/segmentation.py))
+Tensorflow implementation for simple color segmentation using a Unet ([tutorial](notebooks/Segmentation.ipynb))
 
 ## Modeling Fourier Transform / FFT
 Neural network implementation for learning a fourier transform ([tensorflow v1](examples/fft/fft.py))
