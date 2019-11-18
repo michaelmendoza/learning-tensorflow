@@ -8,7 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-
 filepath = '.'
 filename = 'shepp256.png'
 img = mpimg.imread(os.path.join(filepath, filename))

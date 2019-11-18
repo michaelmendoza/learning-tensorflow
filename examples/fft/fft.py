@@ -1,8 +1,67 @@
 
 '''
-Tensorflow Code for a fourier transform network
+Tensorflow Code for a fourier transform network using a linear network 
 '''
 
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import tensorflow as tf 
+from tensorflow import keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+# Import Dataset
+from data_loader import DataLoader
+data = DataLoader(64, 64)
+x_test, y_test = data.get_flatten_data()
+print(x_test.shape)
+
+x_train, y_train = data.generate(10000, 64, 64)
+print(x_train.shape)
+
+# Training Parameters
+learning_rate = 0.0001
+num_epochs = 100
+
+# Network Parameters 
+WIDTH = data.WIDTH; HEIGHT = data.HEIGHT; CHANNELS = data.CHANNELS
+NUM_INPUTS = WIDTH * HEIGHT * CHANNELS
+NUM_OUTPUTS =  WIDTH * HEIGHT * CHANNELS
+
+x_train = x_test.reshape((-1, NUM_INPUTS))
+y_train = y_test.reshape((-1, NUM_INPUTS))
+
+# Total params: 67,108,864
+model0 = Sequential([Dense(NUM_OUTPUTS, input_dim=NUM_INPUTS, use_bias=False)])
+
+# Total params: 4,268,544
+model1 = Sequential([
+    Dense(256, activation=tf.nn.relu, input_dim=NUM_INPUTS),
+    Dense(256, activation=tf.nn.relu, input_dim=NUM_INPUTS),
+    Dense(NUM_OUTPUTS)
+    ])
+
+model = model1
+
+model.compile(loss='mean_squared_error', optimizer='adam')
+model.summary()
+model.fit(x_train, y_train, epochs=num_epochs, batch_size=1)
+
+data.show()
+
+img = model(x_test)
+img = np.reshape(img, (data.WIDTH, data.HEIGHT, data.CHANNELS))
+plt.imshow(img[:,:,0], cmap="gray")
+plt.show()
+
+'''
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -67,3 +126,4 @@ img = sess.run(prediction, feed_dict={X:x})
 img = np.reshape(img, (data.WIDTH, data.HEIGHT, data.CHANNELS))
 plt.imshow(img[:,:,0], cmap="gray")
 plt.show()
+'''
