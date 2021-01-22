@@ -7,7 +7,6 @@ from __future__ import absolute_import, division, print_function
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-import time
 import numpy as np
 import tensorflow as tf 
 from tensorflow import keras
@@ -19,10 +18,6 @@ import matplotlib.pyplot as plt
 from data_loader import DataGenerator
 data = DataGenerator()
 data.print()
-x_train = data.x_train
-x_test = data.x_test
-y_train = data.y_train
-y_test = data.y_test
 
 # Training Parameters
 num_epochs = 10
@@ -42,19 +37,44 @@ def Model():
     xout = Conv2D(NUM_OUTPUTS, (1, 1), padding="same", activation=tf.nn.softmax)(x)
     return tf.keras.Model(inputs=xin, outputs=xout)
 
+@tf.function
+def train(model, inputs, outputs):
+    with tf.GradientTape() as tape:
+        predictions = model(inputs, training=True)
+        loss_value = loss(predictions, outputs)
+    grads = tape.gradient(loss_value, model.variables)
+    optimizer.apply_gradients(zip(grads, model.variables))
+    train_loss(loss_value)
+
+@tf.function
+def test(model, inputs, outputs):
+    predictions = model(inputs)
+    test_accuracy(outputs, predictions)
+
 # Setup Unet model
 model = Model()
 model.summary()
 
-model.compile(optimizer='adam',
-              loss='categorical_crossentropy',
-              metrics=['categorical_accuracy'])
+# Set Losses and Optimizers 
+loss = tf.keras.losses.CategoricalCrossentropy()
+optimizer = tf.keras.optimizers.Adam()
+train_loss = tf.keras.metrics.Mean(name='train_loss')
+test_accuracy = tf.keras.metrics.CategoricalAccuracy(name='test_accuracy')
 
-start = time.time()
-history = model.fit(x_train, y_train, epochs=10, validation_split=0.2, shuffle=True)
-evaluation = model.evaluate(x_test, y_test, verbose=0)
-end = time.time()
-print("Training Complete in " + "{0:.2f}".format(end - start) + " secs" )
+epochs = range(num_epochs)
+for epoch in epochs:
+    for _ in range(data.batch_count(batch_size)):
+        x_train, y_train = data.next_batch(batch_size)
+        train(model, x_train, y_train)
+        test(model, data.x_test, data.y_test)
+    
+    if(epoch % display_step == 0):
+        print('Epoch %2d: training loss=%2.5f test accuracy=%2.5f' % 
+            (epoch, train_loss.result(), test_accuracy.result()))
+
+    # Reset the metrics for the next epoch
+    train_loss.reset_states()
+    test_accuracy.reset_states()
 
 predictions = model(data.x_test)
 
