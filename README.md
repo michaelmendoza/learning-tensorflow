@@ -7,7 +7,7 @@ This tutorial was created for learning tensorflow by example. Currently this rep
 Installation requires python 3 with tensorflow. The easiest method to install the requisite libraries is to install the [conda package manager](https://conda.io/miniconda.html). Then run the following command to install necessary libraries and create a virtual environment call `tf`:
 
 ```
-conda create -n tf python=3.6 numpy matplotlib scikit-image tqdm 
+conda create -n tf python=3.6 numpy matplotlib scikit-image tqdm pycairo
 ```
 
 If you have a CUDA-enabled GPU install tensorflow-gpu: `pip install tensorflow-gpu`
