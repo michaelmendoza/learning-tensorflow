@@ -45,57 +45,55 @@ valid_dataset = valid_dataset.map(lambda x, y: (tf.cast(x, tf.float32) / 255.0, 
 valid_dataset = valid_dataset.repeat()
 
 def resnet():
-    input_t = keras.Input(shape=(WIDTH, HEIGHT, CHANNELS))
-    model_res = kera.applications.ResNet50(include_top=False, 
-                                            weights="imagenet", 
-                                            input_tesnor=input_t)    
+    model_resnet = keras.applications.ResNet50(include_top=False, weights='imagenet', input_shape=(224,224,3))
 
-    for layer in model_res.layers[:143] # Freeze all layers except for the last block of ResNet50
+    for layer in model_resnet.layers[:143]: # Freeze all layers except for the last block of ResNet50
         layer.trainable = False
     
-    for i, layer in enumerate(model_res.layers):
+    for i, layer in enumerate(model_resnet.layers):
         print(i, layer.name, "-", layer.trainable)
 
     #model = keras.models.Sequential()
-    #model.add(model_res)
+    #model.add(model_resnet)
     #model.add(keras.layers.Flatten())
     #model.add(K.layers.Dense(NUM_OUTPUTS, activation='softmax'))
     to_res = (224, 224)
-    model = K.models.Sequential()
-    model.add(K.layers.Lambda(lambda image: tf.image.resize(image, to_res))) 
-    model.add(res_model)
-    model.add(K.layers.Flatten())
-    model.add(K.layers.BatchNormalization())
-    model.add(K.layers.Dense(256, activation='relu'))
-    model.add(K.layers.Dropout(0.5))
-    model.add(K.layers.BatchNormalization())
-    model.add(K.layers.Dense(128, activation='relu'))
-    model.add(K.layers.Dropout(0.5))
-    model.add(K.layers.BatchNormalization())
-    model.add(K.layers.Dense(64, activation='relu'))
-    model.add(K.layers.Dropout(0.5))
-    model.add(K.layers.BatchNormalization())
-    model.add(K.layers.Dense(10, activation='softmax'))
+    model = keras.models.Sequential()
+    model.add(keras.layers.Lambda(lambda image: tf.image.resize(image, to_res))) 
+    model.add(model_resnet)
+    model.add(keras.layers.Flatten())
+    model.add(keras.layers.BatchNormalization())
+    model.add(keras.layers.Dense(256, activation='relu'))
+    model.add(keras.layers.Dropout(0.5))
+    model.add(keras.layers.BatchNormalization())
+    model.add(keras.layers.Dense(128, activation='relu'))
+    model.add(keras.layers.Dropout(0.5))
+    model.add(keras.layers.BatchNormalization())
+    model.add(keras.layers.Dense(64, activation='relu'))
+    model.add(keras.layers.Dropout(0.5))
+    model.add(keras.layers.BatchNormalization())
+    model.add(keras.layers.Dense(10, activation='softmax'))
     return model
 
 
 model = resnet()
 model.compile(loss='categorical_crossentropy',
-                  optimizer=K.optimizers.RMSprop(lr=2e-5),
+                  optimizer=keras.optimizers.RMSprop(lr=2e-5),
                   metrics=['accuracy'])
 
-check_point = K.callbacks.ModelCheckpoint(filepath="cifar10.h5",
+check_point = keras.callbacks.ModelCheckpoint(filepath="cifar10.h5",
                                               monitor="val_acc",
                                               mode="max",
                                               save_best_only=True,
                                               )
 
-history = model.fit(train_dataset, batch_size=32, epochs=10, verbose=1,
-                        validation_data=(x_test, y_test),
-                        callbacks=[check_point])
+# Train and Evaluate model
+history = model.fit(train_dataset, epochs=epochs, steps_per_epoch=200,
+            verbose=1,
+            validation_data=valid_dataset,
+            validation_steps=3,
+            callbacks=[check_point])
+
 model.summary()
 
-# Train and Evaluate model
-#model.fit(train_dataset, epochs=epochs, steps_per_epoch=200,
-#          validation_data=valid_dataset,
-#          validation_steps=3)
+
