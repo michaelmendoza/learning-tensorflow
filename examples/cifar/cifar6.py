@@ -17,7 +17,7 @@ from tensorflow.keras import layers
 import numpy as np
 
 # Training Parameters
-epochs = 10
+epochs = 100
 
 # Network Parameters
 WIDTH = 32; HEIGHT = 32; CHANNELS = 3 
@@ -90,9 +90,7 @@ check_point = keras.callbacks.ModelCheckpoint(filepath="cifar10.h5",
 # Train and Evaluate model
 history = model.fit(train_dataset, epochs=epochs, steps_per_epoch=200,
             verbose=1,
-            validation_data=valid_dataset,
-            validation_steps=3,
-            callbacks=[check_point])
+            validation_data=(x_test, y_test))
 
 model.summary()
 

@@ -1,8 +1,5 @@
 
 '''
-Keras Code for a VGG network (see (2015) Simonyan K, Zisserman A. Very Deep Convolutional Networks 
-for Large-Scale Image Recognitionhttps://arxiv.org/pdf/1409.1556v6.pdf). 
-
 Ref: # https://adventuresinmachinelearning.com/introduction-resnet-tensorflow-2/
 '''
 
