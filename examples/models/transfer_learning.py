@@ -8,7 +8,7 @@ https://medium.com/swlh/hands-on-the-cifar-10-dataset-with-transfer-learning-2e7
 '''
 
 def getModelNames():
-    return ["VGG16", "VGG19", "ResNet50V2", "ResNet152V2", "Xception", "InceptionResNetV2", "DenseNet121", "DenseNet169", "EfficientNetB7"]
+    return ["VGG16", "VGG19", "ResNet50V2", "ResNet152V2", "Xception", "InceptionResNetV2", "DenseNet121", "DenseNet169"] #, "EfficientNetB7"]
 
 def resnet50(HEIGHT, WIDTH, CHANNELS, NUM_OUTPUTS):
     
