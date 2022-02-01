@@ -2,6 +2,9 @@
 import importlib
 import sys
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 # Supported examples
 examples = { 
     'mnist-0':   'examples.mnist.mnist0',
@@ -16,7 +19,11 @@ examples = {
     'segment-0': 'examples.color.segmentation',
     'regress-0': 'examples.regression.linear_regression',
     'regress-1': 'examples.regression.non_linear_regression',
-    'fft':       'examples.fft.fft'
+    'fft':       'examples.fft.fft',
+    'data-aug-1':  'examples.data_augmentation.cifar',
+    'data-aug-2':  'examples.data_augmentation.cifar2',
+    'transfer-learn': 'examples.transfer_learning.cifar',
+    'transfer-learn2': 'examples.transfer_learning.cifar2',
 }
 
 if __name__ == '__main__':
